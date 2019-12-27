@@ -1,0 +1,22 @@
+spring:
+  jpa:
+    database: POSTGRESQL
+    show-sql: true
+#mostrar logs dellenguaje
+    hibernate.ddl-auto: update
+#como se maneja el esquem de la base de datos
+
+#driver de motor DB y datos de conexion
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://localhost/medicaApp
+    username: postgres
+    password: 123
+server:
+  port: 8080
+  
+#registrarse en eureka
+eureka:
+  client:
+    service-url:  
+      defaultZone: http://localhost:8761/eureka

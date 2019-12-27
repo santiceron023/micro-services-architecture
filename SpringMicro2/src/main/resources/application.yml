@@ -1,0 +1,44 @@
+
+#registrarse en eureka
+eureka:
+  client:
+    service-url:  
+      defaultZone: http://localhost:8731/eureka
+
+spring:
+#driver de motor DB y datos de conexion
+  jpa:
+    database: POSTGRESQL
+    show-sql: true
+#mostrar logs dellenguaje
+    hibernate.ddl-auto: update
+    properties:
+      hibernate:
+        jdbc:
+          lob:
+            non_contextual_creation: true
+#como se maneja el esquem de la base de datos
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://localhost/medicaApp
+    username: postgres
+    password: 123
+
+#mail
+  mail:   
+    default-encoding: UTF-8
+    host: smtp.gmail.com
+    username: testSFC23@gmail.com
+    password: prueba8525
+    port: 587
+    properties:
+      mail:
+        ssl:
+          enable: true
+        smtp:
+          auth: true
+          starttls:
+            enable: true       
+            required: true     
+    protocol: smtp
+    test-connection: false
