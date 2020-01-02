@@ -32,7 +32,7 @@ public class PacienteServiceImpl implements IPacienteService{
 
 	@Override
 	public void eliminar(Integer id) {
-		pacienteDao.deleteById(id);
+		pacienteDao.delete(id);
 
 	}
 
@@ -43,8 +43,9 @@ public class PacienteServiceImpl implements IPacienteService{
 
 	@Override
 	public Paciente listarPorId(Integer id) {
-		Optional<Paciente> opt = pacienteDao.findById(id);
-		return opt.isPresent() ? opt.get(): new Paciente();
+		return pacienteDao.findOne(id);
+//		Optional<Paciente> opt = pacienteDao.findById(id);
+//		return opt.isPresent() ? opt.get(): new Paciente();
 	}
 
 	@Override

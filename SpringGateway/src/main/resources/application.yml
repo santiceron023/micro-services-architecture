@@ -10,6 +10,17 @@ zuul:  host:    connect-timeout-millis: 10000
 #localhost:8099/micro-crud/paciente
       path: /micro-crud/**
       url: http://localhost:8080
+      ##para pasar token
+      sensitive-headers:
     cr:
       path: /micro-cr/**
       url: http://localhost:8081
+      sensitive-headers:
+      #user auth and autho
+    uaa:
+     path: /uaa/**
+     #lo busca en eureka
+     service-id: AUTH-SERVER
+     sensitive-headers:
+      #user auth and autho
+    

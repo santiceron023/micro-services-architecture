@@ -1,9 +1,10 @@
-
+server:
+  port: 8081
 #registrarse en eureka
 eureka:
   client:
     service-url:  
-      defaultZone: http://localhost:8731/eureka
+      defaultZone: http://localhost:8761/eureka
 
 spring:
 #driver de motor DB y datos de conexion
@@ -23,6 +24,13 @@ spring:
     url: jdbc:postgresql://localhost/medicaApp
     username: postgres
     password: 123
+    
+    
+    #para seguridad
+  security:
+    oauth2:
+      resource:
+        userInfoUri: http://localhost:9999/user
 
 #mail
   mail:   

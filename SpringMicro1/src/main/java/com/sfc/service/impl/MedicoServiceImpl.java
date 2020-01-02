@@ -29,7 +29,7 @@ public class MedicoServiceImpl implements IMedicoService{
 
 	@Override
 	public void eliminar(Integer id) {
-		medicoDao.deleteById(id);
+		medicoDao.delete(id);
 
 	}
 
@@ -40,8 +40,9 @@ public class MedicoServiceImpl implements IMedicoService{
 
 	@Override
 	public Medico listarPorId(Integer id) {
-		Optional<Medico> opt = medicoDao.findById(id);
-		return opt.isPresent() ? opt.get() : new Medico();
+		return medicoDao.findOne(id);
+//		Optional<Medico> opt = medicoDao.findById(id);
+//		return opt.isPresent() ? opt.get() : new Medico();
 	}
 
 }

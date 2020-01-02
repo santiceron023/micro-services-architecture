@@ -14,10 +14,10 @@ import com.sfc.service.IExamenService;
 @Service
 public class ExamenServiceImpl implements IExamenService{
 
-	
+
 	@Autowired
 	IExamenDao examenDao;
-	 
+
 	@Override
 	public Examen registrar(Examen t) {		
 		return examenDao.save(t);
@@ -30,7 +30,7 @@ public class ExamenServiceImpl implements IExamenService{
 
 	@Override
 	public void eliminar(Integer id) {
-		examenDao.deleteById(id);		
+		examenDao.delete(id);		
 	}
 
 	@Override
@@ -40,8 +40,9 @@ public class ExamenServiceImpl implements IExamenService{
 
 	@Override
 	public Examen listarPorId(Integer id) {		
-		Optional<Examen> opt = examenDao.findById(id);
-		return opt.isPresent() ? opt.get() : new Examen();
+		return examenDao.findOne(id);
+		//		Optional<Examen> opt = examenDao.findById(id);
+		//		return opt.isPresent() ? opt.get() : new Examen();
 	}
 
 }

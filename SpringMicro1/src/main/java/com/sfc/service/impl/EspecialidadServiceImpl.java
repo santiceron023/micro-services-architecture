@@ -30,7 +30,7 @@ public class EspecialidadServiceImpl implements IEspecialidadService{
 
 	@Override
 	public void eliminar(Integer id) {
-		especialidadDao.deleteById(id);
+		especialidadDao.delete(id);
 
 	}
 
@@ -41,8 +41,9 @@ public class EspecialidadServiceImpl implements IEspecialidadService{
 
 	@Override
 	public Especialidad listarPorId(Integer id) {
-		Optional<Especialidad> opt = especialidadDao.findById(id);
-		return 	opt.isPresent() ? opt.get() : new Especialidad();
+		return especialidadDao.findOne(id);
+//		Optional<Especialidad> opt = especialidadDao.findById(id);
+//		return 	opt.isPresent() ? opt.get() : new Especialidad();
 	}
 
 }

@@ -1,9 +1,24 @@
 server:
-  port: 999
+  port: 9999
 spring:
   jpa:
-    database: POSGRESQL
+    database: POSTGRESQL
     show-sql: true
     hibernate: 
       ddl-auto: update
+#quitar error de hibernate    properties:      hibernate:
+        dbc:
+          lob:
+            non_contextual_creation: true
+  datasource:    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://localhost/medicaApp
+    username: postgres
+    password: 123
+eureka:  client:    service-url:      default-zone: http://localhost:8761/eureka
+security:  oauth2:    client:      client-id: mitomediapp
+      client-secret: mito89codex
+      authorized-grant-types: password
+      scope: read,weite
+#    resource:#      filter-order: 3
+
     
